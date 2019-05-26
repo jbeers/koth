@@ -11,6 +11,8 @@ const argv = yargs.usage( 'Usage: $0 [options]' )
 	.describe( 'b', 'The bots to include in the game' )
 	.alias( 'm', 'matches' )
 	.describe( 'm', 'The number of matches to play' )
+	.alias( 'd', 'debug' )
+	.describe( 'd', 'Use with node --inspect to allow hitting debugger, checkout https://chrome.google.com/webstore/detail/nodejs-v8-inspector-manag/gnhhdgbaldcilmgcpfddgdbkhjohddkj' )
 	.demandOption( [ 'g' ] )
 	.default( { m: 10 } )
 	.help( 'h' )
@@ -71,5 +73,14 @@ function run( args ){
 	console.log( results );
 }
 
-run( argv );
+let test = { what: true };
+
+
+if( argv.d ){
+	setTimeout( () => run( argv ), 2000 );
+}
+else {
+	run( argv );
+}
+
 

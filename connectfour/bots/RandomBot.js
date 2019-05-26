@@ -10,14 +10,14 @@ class RandomBot {
 	}
 
 	takeTurn( board, width, height ){
-		const available = this.getAvailableColumns( board );
+		const available = this.getAvailableColumns( board, height );
 		
 		return !available.length
 			? this.random( board )
 			: available[ this.random( available ) ];
 	}
 
-	getAvailableColumns( board ){
+	getAvailableColumns( board, height ){
 		return board.map( ( col, i ) => col.length < height ? i : -1 )
 			.filter( i => i !== -1 );
 	}
