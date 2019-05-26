@@ -48,7 +48,7 @@ function findGameWinner( runLength, board ){
 
 
 class ConnectFour {
-	constructor( bots, width = 5, height = 5, runLength = 4 ){
+	constructor( bots, width = 7, height = 6, runLength = 4 ){
 		this.botOneToken = 'r';
 		this.botTwoToken = 'b';
 
