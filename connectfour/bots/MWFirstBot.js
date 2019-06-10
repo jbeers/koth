@@ -23,7 +23,17 @@ class MWFirstBot {
 
 	getFirstAvailableMove( board, width, height ){
 		const available = this.getAvailableColumns( board, height );
-		return available.find( element => element == 3 ) ? 3 : available[0];
+		return available.find( element => element == 3 )
+				? 3
+				: available.find( element => element == 4 )
+					? 4
+					: available.find( element => element == 2 )
+						? 2
+						: available.find( element => element == 5 )
+							? 5
+							: available.find( element => element ==  1)
+								? 1
+								: available[0];
 	}
 
 	takeTurn( board, width, height ){
